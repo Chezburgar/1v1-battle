@@ -29,14 +29,15 @@ const BUS_TIME = 15;      // seconds for the bus to cross the island
 
 const COLORS = [0x4fc3f7, 0xff7043, 0x9ccc65, 0xffd54f, 0xba68c8, 0x4dd0e1];
 // storm phases: hold at r, then shrink to the next phase's r. dmg = HP/sec outside.
-// Long early holds so the match doesn't rush; the centre drifts randomly each shrink.
+// The first ring starts on-screen (well inside the 420 arena) and begins closing
+// within ~18s so the storm is visibly active; the centre drifts each shrink.
 const STORM_PHASES = [
-  { r: 390, hold: 55, shrink: 40, dmg: 1 },
-  { r: 250, hold: 45, shrink: 38, dmg: 2 },
-  { r: 160, hold: 38, shrink: 34, dmg: 3 },
-  { r: 95, hold: 32, shrink: 30, dmg: 5 },
-  { r: 48, hold: 28, shrink: 26, dmg: 7 },
-  { r: 18, hold: 999, shrink: 0, dmg: 10 },
+  { r: 320, hold: 18, shrink: 34, dmg: 1 },
+  { r: 210, hold: 20, shrink: 32, dmg: 2 },
+  { r: 130, hold: 18, shrink: 28, dmg: 3 },
+  { r: 75, hold: 16, shrink: 24, dmg: 5 },
+  { r: 36, hold: 14, shrink: 20, dmg: 7 },
+  { r: 12, hold: 999, shrink: 0, dmg: 10 },
 ];
 
 function el(id) { return document.getElementById(id); }
